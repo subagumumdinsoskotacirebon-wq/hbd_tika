@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun, Mba Kartika! 🎂</title>
+<meta name="description" content="Kejutan spesial ulang tahun untuk Mba Kartika">
+<meta property="og:title" content="Selamat Ulang Tahun, Mba Kartika! 🎉">
+<meta property="og:description" content="Ada kejutan spesial buat Mba Kartika. Buka yuk!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff4d8d; --purple:#8e44ff; --yellow:#ffd23f; --blue:#35c4ff; --green:#4cd964;
+  --bg1:#2b0a4a; --bg2:#7b1fa2; --bg3:#ff4d8d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif; color:#fff; overflow-x:hidden;
+  background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));
+  background-attachment:fixed; min-height:100vh;
+}
+canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+#balloons{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.balloon{
+  position:absolute;bottom:-160px;width:60px;height:76px;border-radius:50% 50% 48% 48%;
+  animation:rise linear infinite; opacity:.9; pointer-events:auto; cursor:pointer;
+  box-shadow:inset -8px -8px 0 rgba(0,0,0,.12), inset 6px 6px 0 rgba(255,255,255,.25);
+}
+.balloon::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:60px;background:rgba(255,255,255,.6)}
+.balloon::before{content:"";position:absolute;left:calc(50% - 5px);top:calc(100% - 3px);border:5px solid transparent;border-bottom-color:inherit;border-bottom-width:9px}
+@keyframes rise{
+  0%{transform:translateY(0) translateX(0) rotate(-4deg)}
+  50%{transform:translateY(-60vh) translateX(30px) rotate(4deg)}
+  100%{transform:translateY(-130vh) translateX(-20px) rotate(-4deg)}
+}
+.pop{animation:pop .25s forwards!important}
+@keyframes pop{to{transform:scale(1.6);opacity:0}}
+
+/* INTRO */
+#intro{
+  position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 40%,#5b1a8f,#1a0630);text-align:center;padding:20px;
+  transition:opacity .8s, visibility .8s;
+}
+#intro.hide{opacity:0;visibility:hidden}
+.gift{font-size:110px;animation:shake 1.2s infinite;cursor:pointer;filter:drop-shadow(0 10px 25px rgba(255,77,141,.6))}
+@keyframes shake{0%,100%{transform:rotate(0)}15%{transform:rotate(-12deg)}30%{transform:rotate(12deg)}45%{transform:rotate(-8deg)}60%{transform:rotate(8deg)}75%{transform:rotate(0)}}
+#intro h2{font-family:'Pacifico',cursive;font-size:clamp(1.6rem,6vw,2.6rem);margin:10px 0 6px}
+#intro p{opacity:.8;margin-bottom:26px}
+
+.btn{
+  border:none;cursor:pointer;font:600 1rem 'Poppins';color:#fff;padding:14px 30px;border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 8px 25px rgba(255,77,141,.5);
+  transition:transform .2s, box-shadow .2s;
+}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 30px rgba(255,77,141,.7)}
+.btn.alt{background:linear-gradient(135deg,var(--blue),var(--green));box-shadow:0 8px 25px rgba(53,196,255,.4)}
+
+section{position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 20px;text-align:center}
+
+/* HERO */
+.small-tag{letter-spacing:6px;text-transform:uppercase;font-size:.85rem;opacity:.85;margin-bottom:10px}
+h1.title{font-family:'Pacifico',cursive;font-size:clamp(2.4rem,10vw,6rem);line-height:1.15;
+  background:linear-gradient(90deg,#ffd23f,#ff4d8d,#35c4ff,#ffd23f);background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 5s linear infinite;
+  filter:drop-shadow(0 4px 14px rgba(0,0,0,.35))}
+@keyframes flow{to{background-position:300% 0}}
+.name{font-weight:800;font-size:clamp(2rem,9vw,4.5rem);margin:6px 0 18px;text-shadow:0 0 25px rgba(255,255,255,.6)}
+.name span{display:inline-block;animation:bounce 1.6s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.sub{max-width:520px;opacity:.92;font-size:1.05rem;margin-bottom:28px}
+.scroll{margin-top:40px;animation:bounce 1.5s infinite;opacity:.8;font-size:.9rem}
+
+/* CAKE */
+h2.sec{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,6vw,2.8rem);margin-bottom:10px}
+.hint{opacity:.85;margin-bottom:40px}
+.cake{position:relative;width:260px;height:230px;margin:30px auto 40px}
+.layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:14px}
+.l3{bottom:0;width:260px;height:80px;background:#ff8fb8;box-shadow:inset 0 -10px 0 rgba(0,0,0,.1)}
+.l2{bottom:80px;width:200px;height:65px;background:#ffd23f;box-shadow:inset 0 -10px 0 rgba(0,0,0,.1)}
+.l1{bottom:145px;width:140px;height:50px;background:#8be0ff;box-shadow:inset 0 -8px 0 rgba(0,0,0,.1)}
+.drip{position:absolute;top:-6px;left:0;right:0;height:24px;
+  background:radial-gradient(circle at 10px 0,#fff 11px,transparent 12px) 0 0/28px 24px repeat-x;border-radius:14px 14px 0 0}
+.plate{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);width:310px;height:14px;background:#fff;border-radius:50%;opacity:.9}
+.candles{position:absolute;bottom:195px;left:50%;transform:translateX(-50%);display:flex;gap:22px}
+.candle{position:relative;width:12px;height:44px;border-radius:4px;background:repeating-linear-gradient(45deg,#fff 0 6px,#ff4d8d 6px 12px)}
+.flame{position:absolute;left:50%;top:-26px;width:14px;height:24px;transform:translateX(-50%);
+  background:radial-gradient(circle at 50% 70%,#fff6a8,#ffb300 60%,#ff6a00);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  animation:flick .25s infinite alternate;box-shadow:0 0 18px 6px rgba(255,190,0,.6);transition:opacity .4s}
+@keyframes flick{from{transform:translateX(-50%) scale(1) rotate(-3deg)}to{transform:translateX(-50%) scale(1.12,.94) rotate(3deg)}}
+.out .flame{opacity:0}
+.smoke{position:absolute;left:50%;top:-30px;font-size:18px;opacity:0}
+.out .smoke{animation:smoke 2s forwards}
+@keyframes smoke{0%{opacity:.8;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-50px)}}
+#wishMsg{min-height:34px;font-weight:600;font-size:1.2rem;color:var(--yellow)}
+
+/* WISHES */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:900px;width:100%}
+.card{perspective:900px;height:200px;cursor:pointer}
+.inner{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
+.card.flip .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;display:flex;align-items:center;justify-content:center;padding:20px;
+  flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.front{font-size:3rem;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:2px dashed rgba(255,255,255,.5)}
+.front small{font-size:.85rem;margin-top:8px;opacity:.85}
+.back{transform:rotateY(180deg);font-size:1rem;line-height:1.6;background:linear-gradient(135deg,#ffffff,#ffe0f0);color:#4a1a6b;font-weight:600}
+
+/* LETTER */
+.letter{max-width:640px;background:rgba(255,255,255,.95);color:#3c1361;border-radius:22px;padding:34px 30px;text-align:left;
+  box-shadow:0 20px 50px rgba(0,0,0,.35);position:relative}
+.letter::before{content:"💌";position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-size:3rem}
+.letter h3{font-family:'Pacifico',cursive;font-size:1.6rem;margin-bottom:12px;color:#d6246e}
+#typed{white-space:pre-wrap;line-height:1.8;min-height:200px}
+.cursor{display:inline-block;width:2px;height:1.1em;background:#d6246e;vertical-align:text-bottom;animation:blink .7s infinite}
+@keyframes blink{50%{opacity:0}}
+.sign{margin-top:16px;font-family:'Pacifico',cursive;color:#d6246e;text-align:right}
+
+.actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+footer{position:relative;z-index:5;text-align:center;padding:30px 20px 50px;opacity:.8;font-size:.9rem}
+
+/* music button */
+#musicBtn{position:fixed;right:16px;bottom:16px;z-index:60;width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;font-size:1.5rem;
+  background:rgba(255,255,255,.2);backdrop-filter:blur(8px);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.reveal{opacity:0;transform:translateY(40px);transition:all .9s}
+.reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+<div id="balloons"></div>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="gift" id="giftBtn">🎁</div>
+  <h2>Ada kejutan spesial untuk Mba Kartika!</h2>
+  <p>Ketuk kadonya untuk membuka ✨</p>
+  <button class="btn" id="openBtn">Buka Kejutan 🎉</button>
+</div>
+
+<button id="musicBtn" title="Putar / matikan musik">🔇</button>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="small-tag">🎈 Hari Istimewa 🎈</div>
+  <h1 class="title">Selamat Ulang Tahun</h1>
+  <div class="name" id="nameWrap"></div>
+  <p class="sub">Semoga hari ini dipenuhi tawa, cinta, dan semua hal indah yang Mba Kartika impikan. Kamu pantas mendapatkan yang terbaik! 💖</p>
+  <button class="btn" id="partyBtn">🎊 Pesta Confetti!</button>
+  <div class="scroll">Scroll ke bawah ⬇</div>
+</section>
+
+<!-- CAKE -->
+<section id="cakeSec">
+  <h2 class="sec reveal">Make a Wish! 🌟</h2>
+  <p class="hint reveal">Pejamkan mata, buat satu permohonan, lalu tiup lilinnya.</p>
+  <div class="cake reveal" id="cake">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div><span class="smoke">💨</span></div>
+      <div class="candle"><div class="flame"></div><span class="smoke">💨</span></div>
+      <div class="candle"><div class="flame"></div><span class="smoke">💨</span></div>
+    </div>
+    <div class="layer l1"><div class="drip"></div></div>
+    <div class="layer l2"><div class="drip"></div></div>
+    <div class="layer l3"><div class="drip"></div></div>
+    <div class="plate"></div>
+  </div>
+  <div id="wishMsg"></div>
+  <div class="actions">
+    <button class="btn" id="blowBtn">🌬️ Tiup Lilin</button>
+    <button class="btn alt" id="relightBtn">🔥 Nyalakan Lagi</button>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section id="wishSec">
+  <h2 class="sec reveal">Doa & Harapan 💌</h2>
+  <p class="hint reveal">Ketuk kartu untuk membukanya</p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- LETTER -->
+<section id="letterSec">
+  <h2 class="sec reveal">Pesan Untukmu 💝</h2>
+  <div class="letter reveal">
+    <h3 id="letterTitle"></h3>
+    <div id="typed"></div><span class="cursor"></span>
+    <div class="sign" id="sign"></div>
+  </div>
+  <div class="actions">
+    <button class="btn" id="againBtn">🎆 Ledakkan Kembang Api</button>
+    <button class="btn alt" id="topBtn">⬆ Kembali ke Atas</button>
+  </div>
+</section>
+
+<footer>Dibuat dengan 💖 khusus untuk Mba Kartika</footer>
+
+<script>
+/* ============ KONFIGURASI (silakan ubah) ============ */
+const CONFIG = {
+  nama: "Mba Kartika",
+  dari: "Teman-teman & keluarga",
+  doa: [
+    { icon:"🌸", text:"Semoga selalu diberi kesehatan, kebahagiaan, dan umur yang penuh berkah." },
+    { icon:"🚀", text:"Semoga semua cita-cita dan target tahun ini tercapai satu per satu." },
+    { icon:"💰", text:"Semoga rezekinya lancar, melimpah, dan selalu berkah." },
+    { icon:"🤝", text:"Semoga selalu dikelilingi orang-orang baik yang tulus menyayangimu." },
+    { icon:"😄", text:"Semoga hari-harimu penuh senyum, tawa, dan kejutan menyenangkan." },
+    { icon:"🌈", text:"Semoga setiap langkahmu dimudahkan dan setiap masalah ada jalan keluarnya." }
+  ],
+  surat:
+`Di hari yang spesial ini, kami ingin bilang terima kasih karena Mba Kartika sudah menjadi pribadi yang luar biasa: baik hati, bersemangat, dan selalu menginspirasi orang di sekitar.
+
+Bertambahnya usia bukan sekadar angka, tapi tanda bahwa Mba sudah melewati banyak hal dengan kuat. Semoga tahun ini membawa lebih banyak bahagia, lebih banyak berkah, dan lebih banyak alasan untuk tersenyum.
+
+Tetap jadi Mba Kartika yang kami kenal ya: hebat, tangguh, dan menyenangkan!
+
+Sekali lagi, selamat ulang tahun! 🎂🎉`
+};
+/* ===================================================== */
+
+const $ = s => document.querySelector(s);
+
+/* nama animasi huruf */
+$("#nameWrap").innerHTML = [...CONFIG.nama].map((c,i)=>
+  `<span style="animation-delay:${i*0.08}s">${c===" "?"&nbsp;":c}</span>`).join("");
+$("#letterTitle").textContent = `Untuk ${CONFIG.nama},`;
+$("#sign").textContent = `— ${CONFIG.dari} 💕`;
+
+/* kartu doa */
+$("#cards").innerHTML = CONFIG.doa.map(d=>`
+  <div class="card"><div class="inner">
+    <div class="face front">${d.icon}<small>Ketuk untuk buka</small></div>
+    <div class="face back">${d.text}</div>
+  </div></div>`).join("");
+document.querySelectorAll(".card").forEach(c=>c.addEventListener("click",()=>{
+  c.classList.toggle("flip");
+  if(c.classList.contains("flip")){const r=c.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,50)}
+}));
+
+/* ============ CONFETTI ============ */
+const cv=$("#confetti"),ctx=cv.getContext("2d");
+let W,H,parts=[];
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+addEventListener("resize",resize);resize();
+const COLORS=["#ff4d8d","#ffd23f","#35c4ff","#4cd964","#8e44ff","#ff8a3d","#ffffff"];
+function burst(x,y,n=120){
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2,s=4+Math.random()*9;
+    parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-4,g:.18,w:6+Math.random()*7,h:4+Math.random()*6,
+      r:Math.random()*6,vr:(Math.random()-.5)*.4,c:COLORS[Math.random()*COLORS.length|0],life:140+Math.random()*80});
+  }
+}
+function rain(ms=4000){
+  const end=Date.now()+ms;
+  (function f(){
+    for(let i=0;i<6;i++) parts.push({x:Math.random()*W,y:-20,vx:(Math.random()-.5)*2,vy:2+Math.random()*3,g:.03,
+      w:6+Math.random()*7,h:4+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.3,
+      c:COLORS[Math.random()*COLORS.length|0],life:400});
+    if(Date.now()<end) requestAnimationFrame(f);
+  })();
+}
+function fireworks(){
+  let k=0;const t=setInterval(()=>{
+    burst(Math.random()*W,Math.random()*H*.55+40,90);beep(500+Math.random()*700,.12);
+    if(++k>9)clearInterval(t);
+  },300);
+}
+(function loop(){
+  ctx.clearRect(0,0,W,H);
+  parts=parts.filter(p=>p.life>0&&p.y<H+40);
+  for(const p of parts){
+    p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.r+=p.vr;p.life--;
+    ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;
+    ctx.globalAlpha=Math.min(1,p.life/40);ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();
+  }
+  requestAnimationFrame(loop);
+})();
+
+/* ============ BALON ============ */
+const bWrap=$("#balloons");
+function makeBalloon(){
+  const b=document.createElement("div");b.className="balloon";
+  const c=COLORS[Math.random()*6|0];
+  b.style.background=`radial-gradient(circle at 30% 30%,#fff8,${c} 55%)`;b.style.borderBottomColor=c;
+  b.style.left=Math.random()*95+"vw";
+  b.style.animationDuration=(9+Math.random()*9)+"s";
+  b.style.transform=`scale(${.7+Math.random()*.7})`;
+  b.addEventListener("click",e=>{b.classList.add("pop");burst(e.clientX,e.clientY,35);beep(900,.08);setTimeout(()=>b.remove(),250)});
+  b.addEventListener("animationend",()=>b.remove());
+  bWrap.appendChild(b);
+}
+for(let i=0;i<10;i++)setTimeout(makeBalloon,i*500);
+setInterval(()=>{if(bWrap.children.length<16)makeBalloon()},1400);
+
+/* ============ AUDIO ============ */
+let ac=null,musicOn=false,musicTimer=null;
+function audio(){if(!ac)ac=new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();return ac}
+function beep(freq,dur=.15,type="sine",vol=.12){
+  try{const a=audio(),o=a.createOscillator(),g=a.createGain();
+    o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(vol,a.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,a.currentTime+dur);
+    o.connect(g).connect(a.destination);o.start();o.stop(a.currentTime+dur)}catch(e){}
+}
+const N={G4:392,A4:440,B4:493.88,C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99};
+const SONG=[["G4",.75],["G4",.25],["A4",1],["G4",1],["C5",1],["B4",2],
+            ["G4",.75],["G4",.25],["A4",1],["G4",1],["D5",1],["C5",2],
+            ["G4",.75],["G4",.25],["G5",1],["E5",1],["C5",1],["B4",1],["A4",1.5],
+            ["F5",.75],["F5",.25],["E5",1],["C5",1],["D5",1],["C5",2.5]];
+function playSong(){
+  if(!musicOn)return;
+  const a=audio(),beat=.42;let t=a.currentTime+.05;
+  SONG.forEach(([n,d])=>{
+    const o=a.createOscillator(),g=a.createGain();
+    o.type="triangle";o.frequency.value=N[n];
+    g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.18,t+.03);
+    g.gain.exponentialRampToValueAtTime(.001,t+d*beat*.95);
+    o.connect(g).connect(a.destination);o.start(t);o.stop(t+d*beat);t+=d*beat;
+  });
+  musicTimer=setTimeout(playSong,(t-a.currentTime+1.2)*1000);
+}
+function setMusic(on){
+  musicOn=on;$("#musicBtn").textContent=on?"🔊":"🔇";
+  clearTimeout(musicTimer);if(on)playSong();
+}
+$("#musicBtn").addEventListener("click",()=>setMusic(!musicOn));
+
+/* ============ INTRO ============ */
+function openGift(){
+  $("#intro").classList.add("hide");
+  setMusic(true);
+  burst(innerWidth/2,innerHeight/2,220);
+  setTimeout(()=>{rain(5000);fireworks()},400);
+}
+$("#openBtn").addEventListener("click",openGift);
+$("#giftBtn").addEventListener("click",openGift);
+
+/* ============ TOMBOL ============ */
+$("#partyBtn").addEventListener("click",()=>{rain(4500);burst(innerWidth/2,innerHeight/2,160);beep(660,.2)});
+$("#againBtn").addEventListener("click",fireworks);
+$("#topBtn").addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+
+/* lilin */
+const cake=$("#cake");
+function blow(){
+  if(cake.classList.contains("out"))return;
+  cake.classList.add("out");
+  const r=cake.getBoundingClientRect();
+  burst(r.left+r.width/2,r.top,200);rain(3500);
+  $("#wishMsg").textContent="🎉 Semoga semua permohonan Mba Kartika terkabul! 🎉";
+  beep(523,.2);setTimeout(()=>beep(659,.2),150);setTimeout(()=>beep(784,.35),300);
+}
+$("#blowBtn").addEventListener("click",blow);
+$("#relightBtn").addEventListener("click",()=>{cake.classList.remove("out");$("#wishMsg").textContent=""});
+document.querySelectorAll(".candle").forEach(c=>c.addEventListener("click",blow));
+
+/* ============ SCROLL REVEAL + MESIN KETIK ============ */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.2});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+let typedDone=false;
+new IntersectionObserver((es,ob)=>{
+  if(es[0].isIntersecting&&!typedDone){typedDone=true;ob.disconnect();
+    let i=0;const el=$("#typed");
+    (function t(){el.textContent=CONFIG.surat.slice(0,++i);if(i<CONFIG.surat.length)setTimeout(t,28)})();
+  }
+},{threshold:.4}).observe($("#letterSec"));
+
+/* klik di mana saja = percikan kecil */
+addEventListener("pointerdown",e=>{if(e.target.closest("button,.card,.balloon,.candle,#intro"))return;burst(e.clientX,e.clientY,25)});
+</script>
+</body>
+</html>
